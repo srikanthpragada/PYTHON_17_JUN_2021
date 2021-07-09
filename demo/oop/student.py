@@ -23,7 +23,8 @@ class Student:
     def totalfee(self):
         return  Student.get_course_fee(self.course)
 
-    def getdue(self):
+    @property
+    def dueamount(self):
         return self.totalfee() - self.feepaid
 
     def show(self):
@@ -36,4 +37,4 @@ class Student:
 s = Student(1, "James", "Java")
 s.payment(3000)
 s.show()
-print(s.getdue())
+print(s.dueamount)
