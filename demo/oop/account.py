@@ -1,3 +1,15 @@
+class InsufficientBalanceError(Exception):
+    def __init__(self, balance, amount):
+        self.balance = balance
+        self.amount = amount
+
+    def difference(self):
+        return self.amount - self.balance
+
+    def __str__(self):
+        return f"Insufficient balance [{self.balance}] for a withdraw of [{self.amount}]"
+
+
 class Account:
     # Constructor
     def __init__(self, acno, customer, balance=0):
@@ -11,6 +23,9 @@ class Account:
         self.__balance += amount
 
     def withdraw(self, amount):
+        if self.__balance < amount:
+            raise InsufficientBalanceError(self.__balance, amount)
+
         self.__balance -= amount
 
     def getbalance(self):
@@ -27,6 +42,12 @@ print(a1.__dict__)
 print(a1._Account__balance)
 a1.deposit(10000)
 a1.deposit(20000)
+try:
+    a1.withdraw(60000)
+except InsufficientBalanceError as ex:
+    print("Error : ", ex)
+    print("Shortage is : ", ex.difference())
+
 print(a1.getbalance())
 
 a2 = Account(2, "Mark")
