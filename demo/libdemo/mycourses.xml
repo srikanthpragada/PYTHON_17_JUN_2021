@@ -1,0 +1,5 @@
+<courses>
+    <course title="Python" duration="36" />
+    <course title="Data Science" duration="36" />
+    <course title="AWS Fundamentals" duration="24" />
+</courses>

@@ -1,0 +1,14 @@
+<courses>
+    <course>
+        <title>Python</title>
+        <duration>36</duration>
+    </course>
+    <course>
+        <title>Data Science</title>
+        <duration>36</duration>
+    </course>
+    <course>
+        <title>AWS Fundamentals</title>
+        <duration>24</duration>
+    </course>
+</courses>
